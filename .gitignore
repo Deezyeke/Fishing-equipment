@@ -1,3 +1,4 @@
+# Maven
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -5,35 +6,56 @@ pom.xml.versionsBackup
 pom.xml.next
 release.properties
 dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
 
-# Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
-target/
+# IDE files
+/.idea
+/.vscode
 
-# IDE files and directories
-.idea/
-.vscode/
-*.iml
-*.iws
-*.ipr
-
-# Compiled files
+# Compiled Java classes
 *.class
 
-# Logs
-logs/
+# Maven generated files
+mvnw
+mvnw.cmd
+.mvn/
+
+# Spring Boot generated files
+spring-boot-starter*.jar
+spring-boot*.properties
+
+# Log files
+log/
 *.log
 
-# Build output
+# Build files
 build/
+dist/
+*.war
+*.jar
 
-# Dependency directories
-lib/
-repository/
+# Node.js dependencies
+node_modules/
+
+# TypeScript and React generated files
+*.js
+*.js.map
+
+# Compiled TypeScript files
+*.tsbuildinfo
+
+# React build output
+/public/
+
+# Environment-specific files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Miscellaneous
+*.tmp
+*.swp
+*.bak
+*.cache
+*.DS_Store
