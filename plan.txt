@@ -1,0 +1,46 @@
+Fishing Equipment:
+
+Project Frameworks:
+
+1. Backend:
+ - Java Spring with Maven
+ - SprinWeb 
+ - Lombok
+ - PostgreSQL database
+ - In the future maybe Security
+
+2. Frontend:
+ - React with TypeScript (maybe with javascript if its too complicated)
+ - React MUI
+ - Most likely i will focus more on Backend (more favoured by myself)
+
+Project Structure:
+
+With the basic structure of Java spring will build up the project with the OOP priceples.
+Will use the MVC system also so that it will be easier to follow the srtucture or to find.
+There will be also repositories from the project gets the data.
+
+I would like to build it up with a User model and with different fishing tool Models with repositories.
+All routes with controllers and the needed services separetaly.
+
+
+Roots:
+- Login
+- Register
+- Profile
+- Equipments
+- Add new equipment 
+
+Login & Reister:
+Keep it as simple as possible with only the needed information with simple react MUI.
+
+Profile:
+Future plans:
+Add picture and some basic data from the user (name, birth etc...)
+
+Equipment:
+I have to think about that deeper beacuse im a fisher but there are so many things to think of.
+
+Add Equipment:
+It will be a simple side where you can add your equimpent.
+
