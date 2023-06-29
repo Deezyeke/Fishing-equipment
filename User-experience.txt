@@ -1,0 +1,3 @@
+Fishing Gear Tracker:
+
+With this WebApplication fishers will be able to track their fishing equipment. You have to register first so can have your own virtual fishing inventory. On the equipments page there will be several different type of tools you can add if you got or remove if you are out of it. On the profile page you can add or change your personal data.
