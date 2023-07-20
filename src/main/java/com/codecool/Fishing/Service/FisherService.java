@@ -2,9 +2,12 @@ package com.codecool.Fishing.Service;
 
 import com.codecool.Fishing.Model.Fisher;
 import com.codecool.Fishing.Model.Repositories.FisherRepository;
+import com.codecool.Fishing.Model.Requests.LoginRequest;
 import com.codecool.Fishing.Model.Requests.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,5 +20,14 @@ public class FisherService {
                         .email(request.getEmail())
                         .password(request.getPassword()).build();
         fisherRepository.save(fisher);
+    }
+
+    public Fisher login(LoginRequest request) {
+        Fisher fisher = fisherRepository.findFisherByEmail(request.getEmail());
+        if (fisher != null && fisher.getPassword().equals(request.getPassword())) {
+            return fisher;
+        } else {
+            return null;
+        }
     }
 }

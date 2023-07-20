@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface FisherRepository extends JpaRepository<Fisher, Long> {
      Fisher findFisherById(Long id);
-     Optional<Fisher> findFisherByFisherName(String fisherName);
+     Fisher findFisherByEmail(String email);
 }
