@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface FisherRepository extends JpaRepository<Fisher, Long> {
      Fisher findFisherById(Long id);
      Fisher findFisherByEmail(String email);
+
+     Fisher findFisherByFisherName(String fisherName);
 }

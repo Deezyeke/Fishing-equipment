@@ -22,6 +22,11 @@ public class FisherService {
         fisherRepository.save(fisher);
     }
 
+    public boolean isRegistered(RegisterRequest request) {
+        return fisherRepository.findFisherByEmail(request.getEmail()) != null ||
+                fisherRepository.findFisherByFisherName(request.getFisherName()) != null;
+    }
+
     public Fisher login(LoginRequest request) {
         Fisher fisher = fisherRepository.findFisherByEmail(request.getEmail());
         if (fisher != null && fisher.getPassword().equals(request.getPassword())) {

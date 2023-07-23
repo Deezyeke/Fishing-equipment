@@ -13,7 +13,11 @@ public class RegisterController {
     private FisherService fisherService;
 
     @PostMapping
-    public void registerFisher(@RequestBody RegisterRequest request) {
-        fisherService.registerFisher(request);
-    }
+    public void registerFisher(@RequestBody RegisterRequest request) throws IllegalArgumentException{
+        if (fisherService.isRegistered(request)) {
+            fisherService.registerFisher(request);
+        } else {
+            throw new IllegalArgumentException("Fishername or e-mail already used");
+        }
+        }
 }
