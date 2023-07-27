@@ -11,5 +11,5 @@ public interface FisherRepository extends JpaRepository<Fisher, Long> {
      Fisher findFisherById(Long id);
      Fisher findFisherByEmail(String email);
 
-     Fisher findFisherByFisherName(String fisherName);
+     Optional<Fisher> findFisherByFisherName(String fisherName);
 }

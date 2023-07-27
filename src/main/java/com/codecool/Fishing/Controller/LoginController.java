@@ -1,30 +1,34 @@
 package com.codecool.Fishing.Controller;
 
-import com.codecool.Fishing.Model.Requests.LoginRequest;
+import com.codecool.Fishing.Model.Fisher;
+import com.codecool.Fishing.Security.Request.AuthenticationRequest;
+import com.codecool.Fishing.Security.Response.AuthResponse;
+import com.codecool.Fishing.Security.Service.AuthenticationService;
+import com.codecool.Fishing.Security.Service.JwtService;
 import com.codecool.Fishing.Service.FisherService;
-import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
 @AllArgsConstructor
 
 public class LoginController {
-    private final FisherService service;
+    private final FisherService fisherService;
+    private final AuthenticationService authenticationService;
+    private final JwtService jwtService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request, HttpSession session) {
-        if (service.login(request) != null) {
-            session.setAttribute("user", service.login(request));
-            return ResponseEntity.ok("Login successful");
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid details");
-        }
+    public ResponseEntity<AuthResponse> login(@RequestBody AuthenticationRequest request) {
+        return ResponseEntity.ok(authenticationService.authenticate(request));
+    }
+
+    @GetMapping("/api/get-me")
+    public Fisher getMe(@RequestHeader(HttpHeaders.AUTHORIZATION) String header) {
+        String token = header.substring(7);
+        String userName = jwtService.extractUsername(token);
+        return fisherService.getFisher(userName);
     }
 }
