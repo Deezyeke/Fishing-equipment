@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping
 @AllArgsConstructor
-
 public class LoginController {
     private final FisherService fisherService;
     private final AuthenticationService authenticationService;

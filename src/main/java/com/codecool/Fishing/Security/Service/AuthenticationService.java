@@ -2,8 +2,8 @@ package com.codecool.Fishing.Security.Service;
 
 import com.codecool.Fishing.Model.Fisher;
 import com.codecool.Fishing.Model.Repositories.FisherRepository;
-import com.codecool.Fishing.Model.Requests.RegisterRequest;
 import com.codecool.Fishing.Security.Request.AuthenticationRequest;
+import com.codecool.Fishing.Security.Request.RegisterRequest;
 import com.codecool.Fishing.Security.Response.AuthResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +25,7 @@ public class AuthenticationService {
         Fisher fisher = Fisher.builder()
                 .fisherName(request.getFisherName())
                 .email(request.getEmail())
-                .password(request.getPassword())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .build();
         fisherRepository.save(fisher);
         return "Successful registration!";
